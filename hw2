@@ -1,0 +1,95 @@
+import java.util.Formatter;
+import java.util.Scanner; 
+import java.lang.Math; // header stuff MUST go above the first class
+
+// our main class becomes a file but the main method is still found
+public class MathRoutines
+{
+  public static void main(String[] args)
+  {
+    MathRoutines myObject = new MathRoutines();
+    myObject.go();
+  }
+}
+// this will become its own file too (and these can be in any order)
+public class Functions
+{
+  int w,x,y;
+  double z;
+  Scanner keyboard;
+  Formatter screen;
+  public Functions()
+  {
+    keyboard = new Scanner(System.in);
+    screen = new Formatter(system.out);
+  }
+  public void go ()
+  {
+    int input;
+    boolean done;
+    done = false;
+    start = true;
+    
+    while(!done)
+    {
+      screen.format("Please Enter three integers:\n");
+      w = keyboard.nextint();
+      x = keyboard.nextint();
+      y = keyboard.nextint();
+      
+      while (!start)
+      {
+        screen.format("Please select a mathematical function:\n");
+      	screen.format("1. Find Minimum\n");
+      	screen.format("2. Find Sum\n");
+      	screen.format("3. Find Average\n");
+      	screen.format("4. Find Sum of Circular Areas\n");
+      	screen.format("5. Quit\n");
+      	input=keyboard.nextLine();
+      
+      	switch (input)
+      	{
+          case 1:
+            int smallest = w;
+          	if (x <= w){
+              x = smallest;
+          	}
+          	if (y <= w){
+              y = smallest;
+          	}
+          	if (x == w && y == w){
+              screen.format("All three numbers are equal.\n");
+              break;
+            }
+          	else{
+              w= smallest;
+            }
+            screen.format("Minimum is %d \n", smallest);
+            break;
+          case 2:
+            int sum;
+            sum = w + x + y;
+            screen.format("Sum is %d \n", sum);
+            break;
+          case 3:
+            float average;
+            average = (w + x + y)/3;
+            screen.format("Average is %f \n", average);
+            break;
+          case 4:
+            double area1, area2, area3;
+            z = area1 + area2 + area3;
+            area1 = 2 * (3.14) * (w^2);
+            area2 = 2 * (3.14) * (x^2);
+            area3 = 2 * (3.14) * (y^2);
+            screen.format("Sum of Circular Areas is %lf \n", z);
+            break;
+          case 5:
+            done = true;
+          	start = false;
+            break;
+        }
+      }
+    }
+    
+  }
